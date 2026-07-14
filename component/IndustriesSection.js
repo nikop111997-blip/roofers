@@ -94,127 +94,142 @@ export default function IndustriesSection() {
 
         {/* RIGHT PANEL: Stacked Cards (Spans 7 columns) */}
         <div className="lg:col-span-7 flex flex-col gap-4 md:gap-2 h-full">
-          
-          {/* TOP CARD: Wide Card */}
-          <div className="h-[400px] lg:h-1/2 relative rounded-[1rem] overflow-hidden group cursor-pointer shadow-sm">
-            <img 
-              src={industries.topWide.image} 
-              alt={industries.topWide.title}
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            <div className="absolute inset-x-4 md:inset-x-6 bottom-4 md:bottom-6 rounded-xl bg-[#1A2520]/85 p-4 md:p-5 flex items-center justify-between">
-              <div>
-                <h3 className="text-white font-medium text-lg mb-1">
-                  {industries.topWide.title}
-                </h3>
-                <p className="text-gray-300 text-xs md:text-sm">
-                  {industries.topWide.subtitle}
-                </p>
-              </div>
-              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#6dff9a] flex items-center justify-center text-black group-hover:scale-110 transition-transform shrink-0">
-                <ArrowRight size={20} strokeWidth={2.5} />
-              </div>
-            </div>
-          </div>
-
-          {/* BOTTOM CARDS: Two Square Cards */}
-         <div className="flex flex-col lg:flex-row gap-4 md:gap-2 h-[180px] lg:h-1/2">
-
-  {/* Left Side - Two Stacked Cards */}
-  <div className="flex flex-col w-full lg:w-1/2 gap-4 md:gap-2">
-
-    {/* Card 1 */}
-    <div className="relative flex-1 rounded-2xl overflow-hidden group cursor-pointer">
-      <img
-        src={industries.bottomLeft.image}
-        alt={industries.bottomLeft.title}
-        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-      />
-
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-
-      <div className="absolute bottom-5 left-5 right-5 flex justify-between items-end">
-        <div>
-          <h3 className="text-white text-lg font-semibold">
-            {industries.bottomLeft.title}
-          </h3>
-          <p className="text-gray-300 text-sm">
-            {industries.bottomLeft.subtitle}
-          </p>
-        </div>
-
-        <div className="w-10 h-10 rounded-full bg-[#6dff9a] flex items-center justify-center">
-          <ArrowRight size={18} />
-        </div>
-      </div>
+  
+  {/* TOP CARD: Wide Card */}
+  <div className="h-[400px] lg:h-1/2 relative rounded-[1rem] overflow-hidden group cursor-pointer bg-white border border-gray-200 shadow-sm">
+    
+    {/* Background SVG Sketch - Modern Architecture */}
+    <div className="absolute inset-0 w-full h-full p-8 transition-transform duration-700 group-hover:scale-105 opacity-60">
+      <svg viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-gray-200">
+        <path d="M100 350V150L250 100V350M250 150L400 200V350M400 150L600 50V350M600 200L750 250V350" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M150 170V350M200 155V350M300 180V350M350 195V350M450 125V350M500 100V350M550 75V350M650 215V350M700 235V350" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4"/>
+        <path d="M0 350H800" stroke="currentColor" strokeWidth="2"/>
+        <circle cx="600" cy="50" r="4" fill="#6dff9a"/>
+        <circle cx="250" cy="100" r="4" fill="#6dff9a"/>
+      </svg>
     </div>
-
-    {/* Card 2 */}
-    <div className="relative flex-1 rounded-2xl overflow-hidden group cursor-pointer">
-      <img
-        src={industries.bottomRight.image}
-        alt={industries.bottomRight.title}
-        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-      />
-
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-
-      <div className="absolute bottom-5 left-5 right-5 flex justify-between items-end">
-        <div>
-          <h3 className="text-white text-lg font-semibold">
-            {industries.bottomRight.title}
-          </h3>
-          <p className="text-gray-300 text-sm">
-            {industries.bottomRight.subtitle}
-          </p>
-        </div>
-
-        <div className="w-10 h-10 rounded-full bg-[#6dff9a] flex items-center justify-center">
-          <ArrowRight size={18} />
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  {/* Right Side - One Large Card */}
-  <div className="relative w-full lg:w-1/2 rounded-2xl overflow-hidden group cursor-pointer">
-
-   <video
-              className="w-full h-full object-cover"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="auto"
-            >
-              <source src="https://assets.mixkit.co/videos/25050/25050-720.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-
-    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-
-    <div className="absolute bottom-6 left-6 right-6 flex justify-between items-end">
+    
+    {/* Inner Text Container */}
+    <div className="absolute inset-x-4 md:inset-x-6 bottom-4 md:bottom-6 rounded-xl bg-white/95 backdrop-blur-sm p-4 md:p-5 flex items-center justify-between border border-gray-100 shadow-sm">
       <div>
-        <h3 className="text-white text-xl font-semibold">
-          Manufacturing & Industrial
+        <h3 className="text-gray-900 font-semibold text-lg mb-1">
+          {industries.topWide.title}
         </h3>
-
-        <p className="text-gray-300 text-sm">
-          Factories, Warehouses & Logistics Parks
+        <p className="text-gray-500 text-xs md:text-sm font-medium">
+          {industries.topWide.subtitle}
         </p>
       </div>
-
-      <div className="w-12 h-12 rounded-full bg-[#6dff9a] flex items-center justify-center">
-        <ArrowRight size={20} />
+      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#6dff9a] flex items-center justify-center text-black group-hover:scale-110 transition-transform shrink-0 shadow-sm">
+        <ArrowRight size={20} strokeWidth={2.5} />
       </div>
+    </div>
+  </div>
+
+  {/* BOTTOM CARDS: Two Square Cards & One Large Right Card */}
+  <div className="flex flex-col lg:flex-row gap-4 md:gap-2 lg:h-1/2">
+
+    {/* Left Side - Two Stacked Cards */}
+    <div className="flex flex-col w-full lg:w-1/2 gap-4 md:gap-2">
+
+      {/* Card 1 */}
+      <div className="relative flex-1 rounded-2xl overflow-hidden group cursor-pointer bg-white border border-gray-200 shadow-sm">
+        
+        {/* SVG Sketch - Blueprint Grid & Nodes */}
+        <div className="absolute inset-0 w-full h-full p-4 transition-transform duration-700 group-hover:scale-105 opacity-80">
+          <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-gray-200">
+            <path d="M0 50H400M0 100H400M0 150H400M100 0V200M200 0V200M300 0V200" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4"/>
+            <path d="M50 150L150 50H250L350 150" stroke="#6dff9a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <circle cx="150" cy="50" r="4" fill="#6dff9a"/>
+            <circle cx="250" cy="50" r="4" fill="#6dff9a"/>
+          </svg>
+        </div>
+
+        <div className="absolute bottom-5 left-5 right-5 flex justify-between items-end">
+          <div>
+            <h3 className="text-gray-900 text-lg font-bold">
+              {industries.bottomLeft.title}
+            </h3>
+            <p className="text-gray-500 text-sm font-medium">
+              {industries.bottomLeft.subtitle}
+            </p>
+          </div>
+
+          <div className="w-10 h-10 rounded-full bg-[#6dff9a] flex items-center justify-center text-black shadow-sm">
+            <ArrowRight size={18} strokeWidth={2.5} />
+          </div>
+        </div>
+      </div>
+
+      {/* Card 2 */}
+      <div className="relative flex-1 rounded-2xl overflow-hidden group cursor-pointer bg-white border border-gray-200 shadow-sm">
+        
+        {/* SVG Sketch - Tech / Infrastructure Outline */}
+        <div className="absolute inset-0 w-full h-full p-4 transition-transform duration-700 group-hover:scale-105 opacity-80">
+          <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-gray-200">
+            <rect x="50" y="50" width="300" height="100" rx="8" stroke="currentColor" strokeWidth="2"/>
+            <path d="M100 50V150M300 50V150" stroke="currentColor" strokeWidth="2"/>
+            <path d="M150 100L200 70L250 100L200 130L150 100Z" stroke="#6dff9a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <circle cx="200" cy="100" r="5" fill="#6dff9a"/>
+          </svg>
+        </div>
+
+        <div className="absolute bottom-5 left-5 right-5 flex justify-between items-end">
+          <div>
+            <h3 className="text-gray-900 text-lg font-bold">
+              {industries.bottomRight.title}
+            </h3>
+            <p className="text-gray-500 text-sm font-medium">
+              {industries.bottomRight.subtitle}
+            </p>
+          </div>
+
+          <div className="w-10 h-10 rounded-full bg-[#6dff9a] flex items-center justify-center text-black shadow-sm">
+            <ArrowRight size={18} strokeWidth={2.5} />
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    {/* Right Side - One Large Card */}
+    <div className="relative w-full lg:w-1/2 rounded-2xl overflow-hidden group cursor-pointer bg-white border border-gray-200 shadow-sm">
+
+      {/* SVG Sketch - Industrial / Factory Isometric Outline */}
+      <div className="absolute inset-0 w-full h-full p-8 transition-transform duration-700 group-hover:scale-105 opacity-80">
+        <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-gray-200">
+          <path d="M50 250L200 150L350 250V350H50V250Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
+          <path d="M50 250L200 320L350 250" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
+          <path d="M200 150V320" stroke="currentColor" strokeWidth="2"/>
+          <path d="M125 200V285M275 200V285" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4"/>
+          {/* Factory smoke stacks */}
+          <path d="M100 215V100M140 190V70" stroke="#6dff9a" strokeWidth="4" strokeLinecap="round"/>
+          <circle cx="100" cy="80" r="10" stroke="#6dff9a" strokeWidth="1.5" strokeDasharray="2 2"/>
+          <circle cx="140" cy="50" r="15" stroke="#6dff9a" strokeWidth="1.5" strokeDasharray="2 2"/>
+          {/* Gear / Industrial accent */}
+          <path d="M280 180A20 20 0 1 1 240 180A20 20 0 0 1 280 180Z" stroke="#6dff9a" strokeWidth="2"/>
+          <circle cx="260" cy="180" r="6" fill="#6dff9a"/>
+        </svg>
+      </div>
+
+      <div className="absolute bottom-6 left-6 right-6 flex justify-between items-end">
+        <div>
+          <h3 className="text-gray-900 text-xl font-bold">
+            Manufacturing & Industrial
+          </h3>
+          <p className="text-gray-500 text-sm font-medium mt-1">
+            Factories, Warehouses & Logistics Parks
+          </p>
+        </div>
+
+        <div className="w-12 h-12 rounded-full bg-[#6dff9a] flex items-center justify-center text-black transition-transform group-hover:scale-110 shadow-sm">
+          <ArrowRight size={20} strokeWidth={2.5} />
+        </div>
+      </div>
+
     </div>
 
   </div>
-
 </div>
-         
-        </div>
         
       </div>
     </section>
