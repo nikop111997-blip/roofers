@@ -49,16 +49,16 @@ export default function FAQSection() {
             <span className="text-sm font-semibold text-[#0b6827]">Turnkey Infrastructure Solutions</span>
           </div>
 
-          <h2 className="text-3xl lg:text-6xl font-medium tracking-tight leading-tight mb-12 text-[#1a1a1a]">
+          <h2 className="text-3xl lg:text-4xl font-medium tracking-tight leading-tight mb-12 text-[#1a1a1a]">
             Frequently asked <br /> questions
           </h2>
 
           {/* Contact Card */}
           <div className="bg-gradient-to-br from-[#6dff9a] to-[#0b6827] rounded-[1rem] p-8 md:p-10 shadow-sm border border-indigo-50 mt-auto">
-            <h3 className="text-3xl font-medium text-[#1a1a1a] mb-4">
+            <h3 className="text-2xl font-medium text-[#1a1a1a] mb-4">
               Still have a questions?
             </h3>
-            <p className="text-gray-900 text-sm md:text-base leading-relaxed mb-8">
+            <p className="text-gray-900 text-sm md:text-md leading-relaxed mb-8">
               Can't find the answer to your question regarding our infrastructure projects? Send us an email and we'll get back to you as soon as possible!
             </p>
             <button className="bg-[#ffffff] hover:bg-[#efefef] text-black px-8 py-3.5 rounded-lg font-medium transition-colors  w-fit">

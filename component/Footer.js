@@ -56,7 +56,7 @@ export default function Footer() {
             max-width: 100%;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 350px 1fr;
+            grid-template-columns: 550px 1fr;
             gap: 16px;
             align-items: stretch;
             position: relative;

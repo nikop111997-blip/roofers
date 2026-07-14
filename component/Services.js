@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState, useRef } from 'react';
-import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
-import { AArrowDownIcon, SquareArrowOutUpRightIcon } from '@animateicons/react/lucide';
-// Note: Ensure your icon imports are correct for your specific lucide package
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { AArrowDownIcon, SquareArrowOutUpRightIcon } from 'lucide-react'; 
+// Note: Adjusted icon import to standard 'lucide-react' based on common setups, change back if using a custom wrapper.
 
 const services = [
   {
@@ -45,42 +45,23 @@ const services = [
 ];
 
 export default function TurnkeyServices() {
+  // Initialize with the first item open. Set to null if you want them all closed by default.
   const [activeIndex, setActiveIndex] = useState(0);
-  const containerRef = useRef(null);
 
-  // 1. Track the scroll progress of our tall outer wrapper
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
-
-  // 2. Map the scroll progress (0 to 1) to our array of services
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    const numItems = services.length;
-    // Divide the scroll space evenly among the items
-    const progressPerItem = 1 / numItems;
-    
-    // Calculate which item should be active based on scroll depth
-    let newIndex = Math.floor(latest / progressPerItem);
-    
-    // Prevent index out of bounds when scroll hits exactly 100%
-    if (newIndex >= numItems) newIndex = numItems - 1;
-    
-    if (newIndex !== activeIndex) {
-      setActiveIndex(newIndex);
-    }
-  });
+  const handleToggle = (index) => {
+    // If clicking the already open item, close it. Otherwise, open the clicked item.
+    setActiveIndex(activeIndex === index ? null : index);
+  };
 
   return (
-    <section ref={containerRef} className="relative h-[400vh] bg-white font-sans">
-      
-      {/* INNER WRAPPER: Stick this to the top of the screen */}
-      <div className="sticky top-0 h-screen w-full flex items-center px-6 md:px-12 lg:px-12 overflow-hidden">
+    <section className="bg-white font-sans py-16 md:py-24">
+      <div className=" px-6 md:px-12 lg:px-12">
         
-        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           
-          {/* Left Side: Video */}
-          <div className="relative w-full h-[80vh]  rounded-2xl overflow-hidden shadow-sm">
+          {/* Left Side: Video (Sticky) */}
+          {/* Added 'sticky top-24' so the video stays with you as you scroll down the accordion */}
+          <div className="sticky top-24 relative w-full h-[50vh] md:h-[70vh] rounded-2xl overflow-hidden shadow-sm">
             <video
               className="w-full h-full object-cover"
               autoPlay
@@ -95,8 +76,7 @@ export default function TurnkeyServices() {
           </div>
 
           {/* Right Side: Interactive Services List */}
-          {/* Note: Added max-h-[80vh] and overflow-y-auto so the right side scales nicely on smaller screens */}
-          <div className="flex flex-col justify-center max-h-[100vh] overflow-hidden">
+          <div className="flex flex-col justify-center">
             <h2 className="text-xl font-bold tracking-wider uppercase text-gray-950 mb-4 lg:mb-8 shrink-0">
               Our services
             </h2>
@@ -108,13 +88,16 @@ export default function TurnkeyServices() {
                 return (
                   <div key={service.id} className="border-b border-gray-300">
                     
-                    {/* Header */}
-                    <div className="w-full group flex items-center justify-between py-4 lg:py-3 transition-colors duration-300">
+                    {/* Header (Clickable Area) */}
+                    <div 
+                      className="w-full group flex items-center justify-between py-4 lg:py-5 transition-colors duration-300 cursor-pointer"
+                      onClick={() => handleToggle(index)}
+                    >
                       <div className="flex items-center gap-6 lg:gap-12 text-left">
                         <span className="text-sm font-medium text-gray-400 shrink-0">
                           {service.id}
                         </span>
-                        <h3 className={`text-base md:text-xl lg:text-xl font-normal transition-colors duration-300 ${isExpanded ? 'text-emerald-900' : 'text-gray-800'}`}>
+                        <h3 className={`text-base md:text-xl lg:text-xl font-normal transition-colors duration-300 ${isExpanded ? 'text-emerald-900' : 'text-gray-800 group-hover:text-black'}`}>
                           {service.title}
                         </h3>
                       </div>
@@ -123,9 +106,9 @@ export default function TurnkeyServices() {
                       <div className={`w-8 h-8 md:w-12 md:h-12 border rounded-full flex items-center justify-center transition-all duration-300 flex-shrink-0 ml-4 ${
                         isExpanded 
                           ? 'border-emerald-800 bg-emerald-800 text-white' 
-                          : 'border-gray-400 bg-transparent text-gray-700'
+                          : 'border-gray-400 bg-transparent text-gray-700 group-hover:border-black group-hover:text-black'
                       }`}>
-                        <AArrowDownIcon className={`w-4 h-4 md:w-5 md:h-5 transform transition-transform duration-300 ${isExpanded ? 'rotate-90' : ''}`} />
+                        <AArrowDownIcon className={`w-4 h-4 md:w-5 md:h-5 transform transition-transform duration-300 ${isExpanded ? 'rotate-180' : 'rotate-0'}`} />
                       </div>
                     </div>
 
@@ -136,11 +119,11 @@ export default function TurnkeyServices() {
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: "auto", opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.5, ease: [0.04, 0.62, 0.23, 0.98] }}
+                          transition={{ duration: 0.4, ease: "easeInOut" }}
                           className="overflow-hidden"
                         >
-                          <div className="pb-6 pl-[3.5rem] md:pl-[5.5rem] pr-4">
-                            <p className="text-gray-600 mb-3 text-sm lg:text-sm leading-relaxed">
+                          <div className="pb-8 pl-[3.5rem] md:pl-[5.5rem] pr-4">
+                            <p className="text-gray-600 mb-5 text-sm lg:text-base leading-relaxed">
                               {service.description}
                             </p>
                             
@@ -149,7 +132,7 @@ export default function TurnkeyServices() {
                               style={{
                                 background: "linear-gradient(135deg, #6dff9a 0%, #4fd97a 55%, #34c266 100%)",
                               }}
-                              className="inline-flex items-center gap-2 bg-gray-900 text-black px-5 py-2.5 lg:px-6 lg:py-3 rounded-full text-xs lg:text-sm font-medium hover:bg-emerald-800 transition-colors duration-300"
+                              className="inline-flex items-center gap-2 text-black px-5 py-2.5 lg:px-6 lg:py-3 rounded-full text-xs lg:text-sm font-medium hover:opacity-90 transition-opacity duration-300"
                             >
                               Explore this service
                               <SquareArrowOutUpRightIcon className="w-3 h-3 lg:w-4 lg:h-4" />
@@ -158,6 +141,7 @@ export default function TurnkeyServices() {
                         </motion.div>
                       )}
                     </AnimatePresence>
+
                   </div>
                 );
               })}

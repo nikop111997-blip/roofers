@@ -7,6 +7,7 @@ import Section1 from "@/component/Section2";
 import TurnkeyServices from "@/component/Services";
 import TestimonialSection from "@/component/TestimonialSection";
 import TurnkeyProcessSection from "@/component/TurnkeyProcessSection";
+import TurnkeySection from "@/component/TurnkeySection";
 import WhyChooseUs from "@/component/WoodSection";
 import WoodSection from "@/component/WoodSection";
 import Image from "next/image";
@@ -17,14 +18,15 @@ export default function Home() {
    <HeroSection />
    <AboutSection />
    <TurnkeyServices />
+   <TurnkeySection/>
    <IndustriesSection />
    <WhyChooseUs/>
   <Section1/>
   <TurnkeyProcessSection />
   <TestimonialSection />
- 
+ <ContactSection />
   <FAQSection/>
-   <ContactSection />
+   
    </div>
   );
 }

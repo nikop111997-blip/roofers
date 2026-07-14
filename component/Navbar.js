@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useId } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useId, useEffect } from "react";
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import Link from "next/link";
 
 const navLinks = [
@@ -62,7 +62,6 @@ function GlassSurface({
       className={`pointer-events-none absolute inset-0 ${className}`}
       style={{ borderRadius: radius }}
     >
-      {/* 1. bent backdrop */}
       <div
         className="absolute inset-0 backdrop-blur-2xl"
         style={{
@@ -71,7 +70,6 @@ function GlassSurface({
           WebkitBackdropFilter: "blur(80px) saturate(160%)",
         }}
       />
-      {/* 2. glass tint */}
       <div
         className="absolute inset-0"
         style={{
@@ -80,7 +78,6 @@ function GlassSurface({
             "linear-gradient(155deg, rgba(255,255,255,0.16) 40%, rgba(255,255,255,0.05) 40%, rgba(255,255,255,0.09) 100%)",
         }}
       />
-      {/* 3. rim light */}
       <div
         className="absolute inset-0"
         style={{
@@ -89,7 +86,6 @@ function GlassSurface({
             "inset 0 1px 1px rgba(255,255,255,0.85), inset 0 -1px 1px rgba(255,255,255,0.12), inset 0 0 0 1px rgba(255,255,255,0.14)",
         }}
       />
-      {/* 4. chromatic fringe */}
       <div
         className="absolute inset-0 mix-blend-screen opacity-70"
         style={{
@@ -107,26 +103,48 @@ export default function Navbar() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [submenuOpen, setSubmenuOpen] = useState(null);
   const [mobileSubmenuOpen, setMobileSubmenuOpen] = useState(null);
+  
+  // Scroll detection state
+  const [isScrolled, setIsScrolled] = useState(false);
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    if (typeof window !== "undefined") {
+      // Trigger when scrolled past 100vh
+      if (latest > window.innerHeight) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    }
+  });
+
   const filterId = useId().replace(/[:]/g, "");
   const pillFilterId = `glass-pill-${filterId}`;
   const menuFilterId = `glass-menu-${filterId}`;
   const submenuFilterId = `glass-submenu-${filterId}`;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 px-4 py-4 md:px-12 md:py-10 font-sans">
-      <GlassFilter id={pillFilterId} />
-      <GlassFilter id={menuFilterId} />
-      <GlassFilter id={submenuFilterId} />
+    <nav className={`fixed top-0 left-0 right-0 z-50 px-4 md:px-8 transition-all duration-500 font-sans ${isScrolled ? "bg-white shadow-sm py-4 md:py-4" : "bg-transparent py-4 md:py-10"}`}>
+      
+      {/* We only render SVG filters if we haven't scrolled past the hero */}
+      {!isScrolled && (
+        <>
+          <GlassFilter id={pillFilterId} />
+          <GlassFilter id={menuFilterId} />
+          <GlassFilter id={submenuFilterId} />
+        </>
+      )}
 
-      <div className=" flex items-center justify-between">
+      <div className="flex items-center justify-between">
         {/* Left Section: Logo */}
         <div className="flex items-center space-x-6">
-          <Link href="/" className="flex items-center space-x-3 text-white">
-            <span className="text-3xl font-bold tracking-wider drop-shadow-sm">
+          <Link href="/" className="flex items-center space-x-3 transition-colors duration-300">
+            <span className={`text-3xl font-bold tracking-wider drop-shadow-sm transition-colors duration-300 ${isScrolled ? 'text-black' : 'text-white'}`}>
               RT
             </span>
-            <div className="w-[1px] h-8 bg-white/40" />
-            <div className="flex flex-col leading-tight text-sm font-semibold text-white/80">
+            <div className={`w-[1px] h-8 transition-colors duration-300 ${isScrolled ? 'bg-black/20' : 'bg-white/40'}`} />
+            <div className={`flex flex-col leading-tight text-sm font-semibold transition-colors duration-300 ${isScrolled ? 'text-gray-800' : 'text-white/80'}`}>
               <span>Roofers</span>
               <span>Infratech</span>
             </div>
@@ -135,8 +153,10 @@ export default function Navbar() {
 
         {/* Right Section: Desktop Navigation */}
         <div className="flex items-center space-x-4">
-          <div className="hidden lg:block relative rounded-full px-2 py-1.5 shadow-[0_8px_32px_0_rgba(0,0,0,0.25)]">
-            <GlassSurface filterId={pillFilterId} />
+          <div className={`hidden lg:block relative rounded-full px-2 py-1.5 transition-shadow duration-300 ${!isScrolled ? 'shadow-[0_8px_32px_0_rgba(0,0,0,0.25)]' : ''}`}>
+            
+            {!isScrolled && <GlassSurface filterId={pillFilterId} />}
+            
             <div className="relative flex items-center">
               {navLinks.map((link, index) => {
                 const hasSubmenu = !!link.submenu;
@@ -158,7 +178,11 @@ export default function Navbar() {
                   >
                     <Link
                       href={link.href}
-                      className="relative flex items-center gap-1 px-5 py-2 text-sm font-medium text-white transition-colors z-10"
+                      className={`relative flex items-center gap-1 px-5 py-2 text-sm font-medium transition-colors z-10 ${
+                        isScrolled 
+                          ? (isHovered ? 'text-black' : 'text-gray-700')
+                          : 'text-white'
+                      }`}
                     >
                       {link.name}
                       {hasSubmenu && (
@@ -179,37 +203,38 @@ export default function Navbar() {
                         </motion.svg>
                       )}
 
-                      {/* Moving glass lens */}
+                      {/* Moving hover lens */}
                       {isHovered && (
-  <motion.div
-    layoutId="nav-hover"
-    className="absolute inset-0 -z-10 rounded-full overflow-hidden"
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{
-      opacity: 0,
-      transition: { duration: 0.2, ease: "easeOut" },
-    }}
-    transition={{
-      // A softer, more fluid spring makes it glide smoothly like a liquid drop
-      layout: { type: "spring", stiffness: 120, damping: 14, mass: 0.8 },
-      opacity: { duration: 0.15 },
-    }}
-  >
-    <div
-      className="absolute inset-0"
-      style={{
-        background:
-          "radial-gradient(120% 140% at 50% 0%, rgba(255,255,255,0.32), rgba(255,255,255,0.08) 70%)",
-        boxShadow:
-          "inset 0 1px 0.5px rgba(255,255,255,0.9), inset 0 0 0 1px rgba(255,255,255,0.2)",
-      }}
-    />
-  </motion.div>
-)}
+                        <motion.div
+                          layoutId="nav-hover"
+                          className="absolute inset-0 -z-10 rounded-full overflow-hidden"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{
+                            opacity: 0,
+                            transition: { duration: 0.2, ease: "easeOut" },
+                          }}
+                          transition={{
+                            layout: { type: "spring", stiffness: 120, damping: 14, mass: 0.8 },
+                            opacity: { duration: 0.15 },
+                          }}
+                        >
+                          <div
+                            className="absolute inset-0"
+                            style={{
+                              background: isScrolled 
+                                ? "radial-gradient(120% 140% at 50% 0%, rgba(0,0,0,0.06), rgba(0,0,0,0.02) 70%)"
+                                : "radial-gradient(120% 140% at 50% 0%, rgba(255,255,255,0.32), rgba(255,255,255,0.08) 70%)",
+                              boxShadow: isScrolled
+                                ? "inset 0 1px 0.5px rgba(0,0,0,0.04), inset 0 0 0 1px rgba(0,0,0,0.04)"
+                                : "inset 0 1px 0.5px rgba(255,255,255,0.9), inset 0 0 0 1px rgba(255,255,255,0.2)",
+                            }}
+                          />
+                        </motion.div>
+                      )}
                     </Link>
 
-                    {/* Submenu */}
+                    {/* Desktop Submenu */}
                     {hasSubmenu && (
                       <AnimatePresence>
                         {isSubmenuOpen && (
@@ -245,18 +270,25 @@ export default function Navbar() {
                                 ease: "easeOut",
                               }}
                             >
-                              <GlassSurface filterId={submenuFilterId} radius="1.25rem" />
+                              {!isScrolled ? (
+                                <GlassSurface filterId={submenuFilterId} radius="1.25rem" />
+                              ) : (
+                                <div className="absolute inset-0 bg-white border border-gray-100 rounded-[1.25rem]" />
+                              )}
+                              
                               <div className="relative p-2">
                                 {link.submenu?.map((item) => (
                                   <Link
                                     key={item.name}
                                     href={item.href}
-                                    className="block px-4 py-2.5 rounded-xl transition-colors hover:bg-white/12"
+                                    className={`block px-4 py-2.5 rounded-xl transition-colors ${
+                                      isScrolled ? 'hover:bg-gray-50' : 'hover:bg-white/12'
+                                    }`}
                                   >
-                                    <span className="block text-sm font-medium text-white">
+                                    <span className={`block text-sm font-medium ${isScrolled ? 'text-gray-900' : 'text-white'}`}>
                                       {item.name}
                                     </span>
-                                    <span className="block text-xs text-white/60 mt-0.5">
+                                    <span className={`block text-xs mt-0.5 ${isScrolled ? 'text-gray-500' : 'text-white/60'}`}>
                                       {item.blurb}
                                     </span>
                                   </Link>
@@ -295,22 +327,22 @@ export default function Navbar() {
 
         {/* Mobile Hamburger Button */}
         <button
-          className="lg:hidden text-white p-2 z-50 relative"
+          className="lg:hidden p-2 z-50 relative"
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? "Close menu" : "Open menu"}
         >
           <motion.div animate={isOpen ? "open" : "closed"} className="space-y-1.5">
             <motion.span
               variants={{ closed: { rotate: 0, y: 0 }, open: { rotate: 45, y: 8 } }}
-              className="block w-6 h-0.5 bg-white transition-transform"
+              className={`block w-6 h-0.5 transition-colors duration-300 ${isScrolled && !isOpen ? 'bg-black' : 'bg-white'}`}
             />
             <motion.span
               variants={{ closed: { opacity: 1 }, open: { opacity: 0 } }}
-              className="block w-6 h-0.5 bg-white transition-opacity"
+              className={`block w-6 h-0.5 transition-colors duration-300 ${isScrolled && !isOpen ? 'bg-black' : 'bg-white'}`}
             />
             <motion.span
               variants={{ closed: { rotate: 0, y: 0 }, open: { rotate: -45, y: -8 } }}
-              className="block w-6 h-0.5 bg-white transition-transform"
+              className={`block w-6 h-0.5 transition-colors duration-300 ${isScrolled && !isOpen ? 'bg-black' : 'bg-white'}`}
             />
           </motion.div>
         </button>
@@ -326,7 +358,13 @@ export default function Navbar() {
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             className="absolute top-full left-4 right-4 mt-2 rounded-3xl overflow-hidden shadow-2xl lg:hidden"
           >
-            <GlassSurface filterId={menuFilterId} radius="1.5rem" />
+            {/* Conditional Mobile Background */}
+            {!isScrolled ? (
+              <GlassSurface filterId={menuFilterId} radius="1.5rem" />
+            ) : (
+              <div className="absolute inset-0 bg-white border border-gray-100 rounded-[1.5rem]" />
+            )}
+
             <div className="relative flex flex-col p-2 text-center">
               {navLinks.map((link, index) => {
                 const hasSubmenu = !!link.submenu;
@@ -338,7 +376,9 @@ export default function Navbar() {
                       key={link.name}
                       href={link.href}
                       onClick={() => setIsOpen(false)}
-                      className="text-white py-3 rounded-xl hover:bg-white/10 transition-colors font-medium"
+                      className={`py-3 rounded-xl transition-colors font-medium ${
+                        isScrolled ? 'text-gray-900 hover:bg-gray-100' : 'text-white hover:bg-white/10'
+                      }`}
                     >
                       {link.name}
                     </Link>
@@ -351,7 +391,9 @@ export default function Navbar() {
                       onClick={() =>
                         setMobileSubmenuOpen(isOpenAccordion ? null : index)
                       }
-                      className="w-full flex items-center justify-center gap-1.5 text-white py-3 rounded-xl hover:bg-white/10 transition-colors font-medium"
+                      className={`w-full flex items-center justify-center gap-1.5 py-3 rounded-xl transition-colors font-medium ${
+                        isScrolled ? 'text-gray-900 hover:bg-gray-100' : 'text-white hover:bg-white/10'
+                      }`}
                     >
                       {link.name}
                       <motion.svg
@@ -385,7 +427,11 @@ export default function Navbar() {
                                 key={item.name}
                                 href={item.href}
                                 onClick={() => setIsOpen(false)}
-                                className="block py-2.5 rounded-xl text-white/80 hover:bg-white/10 hover:text-white transition-colors text-sm"
+                                className={`block py-2.5 rounded-xl transition-colors text-sm ${
+                                  isScrolled 
+                                    ? 'text-gray-600 hover:bg-gray-100 hover:text-gray-900' 
+                                    : 'text-white/80 hover:bg-white/10 hover:text-white'
+                                }`}
                               >
                                 {item.name}
                               </Link>

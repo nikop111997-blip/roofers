@@ -1,89 +1,67 @@
 import React from 'react';
 
-export default function ContactSection() {
+export default function HeroContactSection() {
   return (
-    <section className="w-full bg-white py-24 px-6 md:px-12 lg:px-12 font-sans">
-      <div className=" grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8 items-start">
+    <section className="p-4 md:p-8 font-sans">
+      {/* 
+        Main Container 
+        Added items-start so the text aligns to the top instead of stretching/bottom.
+      */}
+      <div className="relative w-full rounded-[1rem] overflow-hidden min-h-[700px] flex flex-col lg:flex-row p-6 md:p-12 gap-12 justify-between items-start">
         
-        {/* Left Side: Information */}
-        <div className="flex flex-col gap-10">
-          <div className="flex flex-col gap-6">
-            <h2 className="text-4xl md:text-5xl font-semibold leading-tight tracking-tight text-[#1a1a1a]">
-              We are ready to assist with your infrastructure.
-            </h2>
-            <p className="text-gray-600 text-lg leading-relaxed max-w-md">
-              From initial site feasibility to final project handover, our expert team is here to ensure your turnkey project is delivered seamlessly.
-            </p>
-          </div>
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075&auto=format&fit=crop')` 
+          }}
+        />
+        
+        {/* Dark Overlay for Text Readability */}
+        <div className="absolute inset-0 bg-black/55" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="flex flex-col gap-2">
-              <h4 className="font-bold text-lg text-[#1a1a1a]">Call Center</h4>
-              <p className="text-gray-500">+91 141 234 5678</p>
-              <p className="text-gray-500">+91 987 654 3210</p>
-            </div>
-            <div className="flex flex-col gap-2">
-              <h4 className="font-bold text-lg text-[#1a1a1a]">Our Location</h4>
-              <p className="text-gray-500">Jaipur, Rajasthan</p>
-              <p className="text-gray-500">Industrial Area, Phase 1</p>
-            </div>
-            <div className="flex flex-col gap-2">
-              <h4 className="font-bold text-lg text-[#1a1a1a]">Email</h4>
-              <p className="text-gray-500">projects@roofersinfratech.com</p>
-            </div>
-            <div className="flex flex-col gap-2">
-              <h4 className="font-bold text-lg text-[#1a1a1a]">Social Network</h4>
-              <div className="flex gap-4 mt-1">
-                {/* Social placeholders - replace with your links */}
-                <a href="#" className="text-gray-400 hover:text-[#1a1a1a] transition-colors">FB</a>
-                <a href="#" className="text-gray-400 hover:text-[#1a1a1a] transition-colors">X</a>
-                <a href="#" className="text-gray-400 hover:text-[#1a1a1a] transition-colors">IN</a>
-                <a href="#" className="text-gray-400 hover:text-[#1a1a1a] transition-colors">YT</a>
-              </div>
-            </div>
-          </div>
+        {/* Left Side: Top-aligned Text */}
+        <div className="relative z-10 flex-1 flex flex-col justify-start text-white max-w-xl pt-4 md:pt-8">
+          <h1 className="text-3xl md:text-4xl font-semibold leading-tight tracking-tight mb-6">
+            We are ready to assist with your infrastructure.
+          </h1>
+          <p className="text-gray-200 text-sm md:text-base leading-relaxed max-w-md">
+            From initial site feasibility to final project handover, our expert team is here to ensure your turnkey project is delivered seamlessly.
+          </p>
         </div>
 
-        {/* Right Side: Form */}
-        <div className="bg-gradient-to-br from-[#6dff9a] to-[#0b6827] p-8 md:p-12 rounded-2xl shadow-sm border border-gray-100"
-         style={{
-    background: `
-      linear-gradient(to bottom right, #0b6827 0%, #6dff9a 100%),
-      url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 1200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.0' numOctaves='6' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='120%25' filter='url(%23noiseFilter)' opacity='0.45'/%3E%3C/svg%3E")
-    `,
-    backgroundBlendMode: "soft-light",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  }}
-        >
-          <h3 className="text-3xl font-bold mb-2 text-white">Get in Touch</h3>
-          <p className="text-gray-50 mb-8">Define your project goals and identify areas where we can add value.</p>
+        {/* Right Side: Floating Form Card (Using your original form fields) */}
+        <div className="relative z-10 w-full max-w-[420px] bg-white rounded-3xl p-8 shadow-2xl shrink-0 mt-4 lg:mt-0">
+          <h3 className="text-2xl font-bold mb-2 text-[#1a1a1a]">Get in Touch</h3>
+          <p className="text-gray-500 text-sm mb-8">
+            Define your project goals and identify areas where we can add value.
+          </p>
           
-          <form className="flex flex-col gap-6" >
+          <form className="flex flex-col gap-6">
             <input 
               type="text" 
               placeholder="Full name" 
-              className="w-full bg-transparent border-b border-gray-50 py-3 outline-none focus:border-[#1a1a1a] transition-colors"
+              className="w-full bg-transparent border-b border-gray-300 py-3 outline-none focus:border-[#1a1a1a] transition-colors text-gray-800 placeholder-gray-400"
             />
             <input 
               type="email" 
               placeholder="Email" 
-              className="w-full bg-transparent border-b border-gray-50 py-3 outline-none focus:border-[#1a1a1a] transition-colors"
+              className="w-full bg-transparent border-b border-gray-300 py-3 outline-none focus:border-[#1a1a1a] transition-colors text-gray-800 placeholder-gray-400"
             />
             <input 
               type="text" 
               placeholder="Subject" 
-              className="w-full bg-transparent border-b border-gray-50 py-3 outline-none focus:border-[#1a1a1a] transition-colors"
+              className="w-full bg-transparent border-b border-gray-300 py-3 outline-none focus:border-[#1a1a1a] transition-colors text-gray-800 placeholder-gray-400"
             />
             <textarea 
               placeholder="Message" 
               rows="4"
-              className="w-full bg-transparent border-b border-gray-50 py-3 outline-none focus:border-[#1a1a1a] transition-colors resize-none"
+              className="w-full bg-transparent border-b border-gray-300 py-3 outline-none focus:border-[#1a1a1a] transition-colors resize-none text-gray-800 placeholder-gray-400"
             ></textarea>
             
             <button 
               type="submit" 
-              className="bg-[#1a1a1a] text-white py-4 px-8 rounded-full font-semibold hover:bg-[#333] transition-all flex items-center justify-center gap-2 w-fit mt-4"
+              className="w-full bg-gradient-to-br from-[#6dff9a] to-[#0b6827] cursor-pointer text-white py-4 px-8 rounded-full font-semibold hover:bg-black transition-all flex items-center justify-center gap-2 mt-4"
             >
               <span>Send a message</span>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">

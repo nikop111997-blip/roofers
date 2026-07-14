@@ -162,7 +162,7 @@ export default function HeroSection() {
   const cardFilterId = `glass-card-${filterId}`;
 
   return (
-    <section className="relative min-h-screen w-full rounded-none sm:rounded-4xl flex items-center font-sans justify-center pt-24 pb-2 overflow-hidden bg-[#0a1410]">
+    <section className="relative h-[80vh] sm:min-h-screen w-full rounded-none sm:rounded-4xl flex items-center font-sans justify-center pt-24 pb-2 overflow-hidden bg-[#0a1410]">
       <GlassFilter id={cardFilterId} />
 
       {/* Background Image & Gradients */}
@@ -181,7 +181,7 @@ export default function HeroSection() {
       <div className="relative z-10  px-8 w-full grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
         
         {/* Left Content */}
-        <div className="absolute bottom-30 left-10 w-full h-1/2 bg-gradient-to-t from-[#0a1410] to-transparent z-0">
+        <div className="absolute bottom-30 left-4 sm:left-10 w-full h-1/2 bg-gradient-to-t from-[#0a1410] to-transparent z-0">
         <motion.div
           className="lg:col-span-7 flex flex-col items-start space-y-8"
           variants={containerVariants}
@@ -190,18 +190,16 @@ export default function HeroSection() {
         >
           <motion.h1
             variants={itemVariants}
-            className="text-3xl sm:text-5xl lg:text-5xl font-semibold text-white leading-[1.1] tracking-tight drop-shadow-lg"
+            className="text-3xl sm:text-5xl lg:text-5xl font-semibold text-white leading-[1.1] tracking-tight drop-shadow-lg pr-4"
           >
             Concept to reality. <br className="hidden sm:block" />
-            Complete turnkey solutions <br className="hidden sm:block" />
+            Complete turnkey solutions <br className="" />
             <span className="text-[#86e395]">built for your success.</span>
           </motion.h1>
 
           <motion.div variants={itemVariants} className="flex items-center space-x-3 text-white/80">
-            <svg className="w-5 h-5 text-white drop-shadow-md" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-            </svg>
-            <span className="text-sm md:text-base font-medium tracking-wide drop-shadow-md">
+           
+            <span className="text-sm md:text-base font-medium tracking-wide drop-shadow-md pr-4 max-w-sm">
               Engineering, procurement, and construction under one roof
             </span>
           </motion.div>
@@ -227,8 +225,9 @@ export default function HeroSection() {
             />
             <span className="relative text-md text-gray-900">Discuss Your Project</span>
           </motion.button>
+          <div className="hidden md:block">
           <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-3 max-w-5xl"
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-3 max-w-5xl"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -258,6 +257,7 @@ export default function HeroSection() {
             </motion.div>
           ))}
         </motion.div>
+        </div>
         </motion.div>
 </div>
         {/* Right Content: Liquid Glass Stats Cards */}
