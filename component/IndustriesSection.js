@@ -66,7 +66,7 @@ export default function IndustriesSection() {
               playsInline
               preload="auto"
             >
-              <source src="https://assets.mixkit.co/videos/33952/33952-720.mp4" type="video/mp4" />
+              <source src="https://www.pexels.com/download/video/17224715/" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           {/* Gradient to darken the bottom slightly */}
@@ -76,13 +76,13 @@ export default function IndustriesSection() {
           <div className="absolute inset-x-4 md:inset-x-6 bottom-4 md:bottom-6 rounded-xl bg-[#1A2520]/85 p-5 md:p-6 flex items-end justify-between transition-transform duration-300">
             <div>
               <h3 className="text-white font-medium text-lg md:text-xl mb-1">
-                {industries.leftTall.title}
+                House Turnkey Projets
               </h3>
               <p className="text-gray-300 text-xs md:text-sm mb-3">
-                {industries.leftTall.subtitle}
+                
               </p>
               <p className="text-white font-bold text-lg md:text-sm">
-                {industries.leftTall.metric}
+               150+ projects Delivered
               </p>
             </div>
             {/* Action Button */}

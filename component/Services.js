@@ -61,7 +61,7 @@ export default function TurnkeyServices() {
           
           {/* Left Side: Video (Sticky) */}
           {/* Added 'sticky top-24' so the video stays with you as you scroll down the accordion */}
-          <div className="sticky top-24 relative w-full h-[50vh] md:h-[70vh] rounded-2xl overflow-hidden shadow-sm">
+          <div className=" relative w-full h-[50vh] md:h-[70vh] rounded-2xl overflow-hidden shadow-sm">
             <video
               className="w-full h-full object-cover"
               autoPlay
@@ -70,7 +70,7 @@ export default function TurnkeyServices() {
               playsInline
               preload="auto"
             >
-              <source src="https://assets.mixkit.co/videos/4010/4010-720.mp4" type="video/mp4" />
+              <source src="https://www.pexels.com/download/video/35397698/" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>

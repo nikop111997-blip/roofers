@@ -162,20 +162,24 @@ export default function HeroSection() {
   const cardFilterId = `glass-card-${filterId}`;
 
   return (
-    <section className="relative h-[80vh] sm:min-h-screen w-full rounded-none sm:rounded-4xl flex items-center font-sans justify-center pt-24 pb-2 overflow-hidden bg-[#0a1410]">
+    <section className="relative h-[80vh] sm:min-h-[90vh] w-full rounded-none sm:rounded-4xl flex items-center font-sans justify-center pt-24 pb-2 overflow-hidden bg-[#0a1410]">
       <GlassFilter id={cardFilterId} />
 
       {/* Background Image & Gradients */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="https://images.unsplash.com/photo-1706808849827-7366c098b317" // Make sure this path exists
-          alt="Large scale turnkey project development"
-          fill
-          className="object-cover object-center opacity-60 rotate-y-180 "
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/10 to-black/10"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a1410] via-transparent to-transparent"></div>
+           <video
+              className="w-full h-full object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+            >
+              <source src="https://www.pexels.com/download/video/10959786/" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/10 to-black/10"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a1410] via-transparent to-transparent"></div>
       </div>
 
       <div className="relative z-10  px-8 w-full grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -225,39 +229,6 @@ export default function HeroSection() {
             />
             <span className="relative text-md text-gray-900">Discuss Your Project</span>
           </motion.button>
-          <div className="hidden md:block">
-          <motion.div
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-3 max-w-5xl"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          {statsData.map((stat) => (
-            <motion.div
-              key={stat.id}
-              variants={itemVariants}
-              whileHover={{ x: -8 }}
-              className="group relative flex items-center border-r border-slate-800 font-sans justify-between p-6  transition-transform duration-300"
-            >
-              {/* The Glass Material */}
-            
-              
-              <div className="relative z-10 flex flex-col space-y-2 pr-4">
-                <h3 className="text-xl sm:text-xl font-semibold text-white tracking-tight drop-shadow-sm">
-                  {stat.title}
-                </h3>
-                <p className="text-white/90 text-sm leading-relaxed font-medium">
-                  {stat.description}
-                </p>
-              </div>
-              
-              <div className="relative z-10 flex-shrink-0 w-14 h-14 flex items-center justify-center rounded-full bg-black/20 border border-white/10 group-hover:border-[#86e395]/40 group-hover:bg-black/30 transition-colors duration-300 shadow-inner">
-                {stat.icon}
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-        </div>
         </motion.div>
 </div>
         {/* Right Content: Liquid Glass Stats Cards */}

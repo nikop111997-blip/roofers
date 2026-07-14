@@ -15,7 +15,7 @@ const defaultPosts = [
     category: 'Project Highlight',
     title: 'Overcoming Complexities in High-Rise Turnkey Projects',
     excerpt: 'A deep dive into our recent urban development project, highlighting risk mitigation and streamlined single-contractor execution.',
-    imageUrl: 'https://images.unsplash.com/photo-1541888086225-eb9910d5402a?auto=format&fit=crop&q=80&w=800',
+    imageUrl: 'https://images.pexels.com/photos/7031604/pexels-photo-7031604.jpeg',
     link: '#'
   },
   {
@@ -23,7 +23,7 @@ const defaultPosts = [
     category: 'Engineering',
     title: 'Why Pre-Engineered Buildings (PEBs) Are Cost-Effective',
     excerpt: 'Discover the advantages of integrating pre-engineered frameworks to accelerate timelines and guarantee structural integrity.',
-    imageUrl: 'https://images.unsplash.com/photo-1504307651254-35680f356f58?auto=format&fit=crop&q=80&w=800',
+    imageUrl: 'https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg',
     link: '#'
   },
   {

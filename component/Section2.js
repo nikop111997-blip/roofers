@@ -15,7 +15,7 @@ export default function Section1() {
         className="absolute inset-0 w-full h-full object-cover z-0"
       >
         {/* Recommend replacing this src with a construction, engineering, or project management background video */}
-        <source src="https://assets.mixkit.co/videos/42333/42333-720.mp4" type="video/mp4" />
+        <source src="https://www.pexels.com/download/video/37837991/ " type="video/mp4" />
       </video>
 
       {/* OVERLAY - Darkens the video slightly so text is readable */}
