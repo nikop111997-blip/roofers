@@ -3,6 +3,7 @@ import ContactSection from "@/component/ContactSection";
 import FAQSection from "@/component/FAQSection";
 import HeroSection from "@/component/Hero";
 import IndustriesSection from "@/component/IndustriesSection";
+import Newsletter from "@/component/Newsletter";
 import Section1 from "@/component/Section2";
 import TurnkeyServices from "@/component/Services";
 import TestimonialSection from "@/component/TestimonialSection";
@@ -26,7 +27,6 @@ export default function Home() {
   <TestimonialSection />
  <ContactSection />
   <FAQSection/>
-   
    </div>
   );
 }

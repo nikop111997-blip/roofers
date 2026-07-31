@@ -3,6 +3,7 @@
 import { useState, useId, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
   { name: "About Us", href: "#" },
@@ -99,6 +100,7 @@ function GlassSurface({
 }
 
 export default function Navbar() {
+  const pathname = usePathname(); // 2. Initialize usePathname
   const [isOpen, setIsOpen] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [submenuOpen, setSubmenuOpen] = useState(null);
@@ -123,7 +125,12 @@ export default function Navbar() {
   const pillFilterId = `glass-pill-${filterId}`;
   const menuFilterId = `glass-menu-${filterId}`;
   const submenuFilterId = `glass-submenu-${filterId}`;
-
+if (
+  pathname?.startsWith("/dashboard") ||
+  pathname === "/login"
+) {
+  return null;
+}
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 px-4 md:px-12 transition-all duration-500 font-sans ${isScrolled ? "bg-white shadow-sm py-4 md:py-4" : "bg-transparent py-4 md:py-10"}`}>
       
