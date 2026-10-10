@@ -13,7 +13,7 @@ const defaultPosts = [
   {
     id: 2,
     category: 'Project Highlight',
-    title: 'Overcoming Complexities in High-Rise Turnkey Projects',
+    title: 'Overcoming Complexities in High-Rise construction Projects',
     excerpt: 'A deep dive into our recent urban development project, highlighting risk mitigation and streamlined single-contractor execution.',
     imageUrl: 'https://images.pexels.com/photos/7031604/pexels-photo-7031604.jpeg',
     link: '#'
@@ -30,7 +30,7 @@ const defaultPosts = [
     id: 4,
     category: 'Safety Standards',
     title: 'Navigating New Regulatory Compliance in Construction',
-    excerpt: 'A comprehensive guide to the latest safety codes and how turnkey providers ensure 100% compliance on every job site.',
+    excerpt: 'A comprehensive guide to the latest safety codes and how construction providers ensure 100% compliance on every job site.',
     imageUrl: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=800',
     link: '#'
   }
@@ -48,7 +48,7 @@ export default function BlogSection({ posts = defaultPosts }) {
               Latest Insights & Industry News
             </h2>
             <p className="text-gray-500 text-sm md:text-base max-w-sm leading-relaxed lg:pl-6 lg:border-l-2 lg:border-gray-200">
-              Stay updated with the latest trends, project highlights, and expert perspectives in turnkey infrastructure and engineering.
+              Stay updated with the latest trends, project highlights, and expert perspectives in construction infrastructure and engineering.
             </p>
           </div>
         </div>

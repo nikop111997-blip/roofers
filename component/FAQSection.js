@@ -3,12 +3,12 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Turnkey Service Provider FAQ Data
+// construction Service Provider FAQ Data
 const faqs = [
   {
     id: 1,
-    question: 'What exactly does your turnkey service include?',
-    answer: 'Our turnkey solutions cover the entire project lifecycle. This includes initial site assessment, architectural design, engineering, procurement of materials, full construction, and the final operational handover.',
+    question: 'What exactly does your construction service include?',
+    answer: 'Our construction solutions cover the entire project lifecycle. This includes initial site assessment, architectural design, engineering, procurement of materials, full construction, and the final operational handover.',
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     id: 3,
-    question: 'Are there any hidden costs in your turnkey contracts?',
+    question: 'Are there any hidden costs in your construction contracts?',
     answer: 'No. We pride ourselves on unmatched cost predictability. Once the project scope is finalized, we provide a comprehensive, transparent budget with zero hidden fees or unexpected overruns.',
   },
   {
@@ -46,7 +46,7 @@ export default function FAQSection() {
             <svg className="w-4 h-4 text-[#0b6827]" fill="currentColor" viewBox="0 0 20 20">
                <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.381z" clipRule="evenodd" />
             </svg>
-            <span className="text-sm font-semibold text-[#0b6827]">Turnkey Infrastructure Solutions</span>
+            <span className="text-sm font-semibold text-[#0b6827]">construction Infrastructure Solutions</span>
           </div>
 
           <h2 className="text-3xl lg:text-4xl font-medium tracking-tight leading-tight mb-12 text-[#1a1a1a]">

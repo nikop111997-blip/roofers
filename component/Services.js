@@ -20,7 +20,7 @@ const services = [
   },
   {
     id: '03',
-    title: 'Procurement & Material Sourcing',
+    title: 'Project Management & Consultancy(PMC)',
     description: 'We manage all vendor relationships, negotiate purchase orders, and secure high-quality construction materials, ensuring everything arrives on-site exactly when needed.',
     link: '/services/procurement',
   },
@@ -61,7 +61,7 @@ export default function TurnkeyServices() {
           
           {/* Left Side: Video (Sticky) */}
           {/* Added 'sticky top-24' so the video stays with you as you scroll down the accordion */}
-          <div className=" relative w-full h-[50vh] md:h-[70vh] rounded-2xl overflow-hidden shadow-sm">
+          <div className=" relative w-full h-[50vh] md:h-[85vh] rounded-2xl overflow-hidden shadow-sm">
             <video
               className="w-full h-full object-cover"
               autoPlay

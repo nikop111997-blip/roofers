@@ -162,7 +162,7 @@ export default function HeroSection() {
   const cardFilterId = `glass-card-${filterId}`;
 
   return (
-    <section className="relative h-[80vh] sm:min-h-[90vh] w-full rounded-none sm:rounded-4xl flex items-center font-sans justify-center pt-24 pb-2 overflow-hidden bg-[#0a1410]">
+    <section className="relative h-[80vh] sm:min-h-[96vh] w-full rounded-none sm:rounded-4xl flex items-center font-sans justify-center pt-24 pb-2 overflow-hidden bg-[#0a1410]">
       <GlassFilter id={cardFilterId} />
 
       {/* Background Image & Gradients */}
@@ -175,7 +175,7 @@ export default function HeroSection() {
               playsInline
               preload="auto"
             >
-              <source src="https://www.pexels.com/download/video/10959786/" type="video/mp4" />
+              <source src="https://res.cloudinary.com/dp2mtg35m/video/upload/v1791601635/Blue_and_Black_Neon_Modern_Opening_Video_Youtube_Intro_yeibf7.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/10 to-black/10"></div>
@@ -197,19 +197,20 @@ export default function HeroSection() {
             className="text-3xl sm:text-5xl lg:text-5xl font-semibold text-white leading-[1.1] tracking-tight drop-shadow-lg pr-4"
           >
             Concept to reality. <br className="hidden sm:block" />
-            Complete turnkey solutions <br className="" />
-            <span className="text-[#86e395]">built for your success.</span>
+            Complete construction solutions <br className="" />
+            <span className="text-[#86e395]">built for your dream.</span>
           </motion.h1>
 
           <motion.div variants={itemVariants} className="flex items-center space-x-3 text-white/80">
            
             <span className="text-sm md:text-base font-medium tracking-wide drop-shadow-md pr-4 max-w-sm">
-              Engineering, procurement, and construction under one roof
+              Design engineering, pmc, and construction under one roof
             </span>
           </motion.div>
 
           {/* Liquid Glass CTA Button */}
-          <motion.button
+          <motion.a
+          href="#form"
             variants={itemVariants}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
@@ -228,7 +229,7 @@ export default function HeroSection() {
               }}
             />
             <span className="relative text-md text-gray-900">Discuss Your Project</span>
-          </motion.button>
+          </motion.a>
         </motion.div>
 </div>
         {/* Right Content: Liquid Glass Stats Cards */}

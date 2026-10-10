@@ -83,7 +83,7 @@ export default function WhyChooseUs() {
             <span className="text-sm font-semibold tracking-wide uppercase">Client Advantages</span>
           </div>
           <h2 className="text-2xl md:text-4xl font-medium leading-snug tracking-tight">
-            Our integrated turnkey solutions are designed to deliver seamless, efficient results, addressing critical client needs and project complexities.
+            Our integrated construction solutions are designed to deliver seamless, efficient results, addressing critical client needs and project complexities.
           </h2>
         </div>
 

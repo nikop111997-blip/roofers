@@ -7,18 +7,21 @@ import {
   ShieldCheck, 
   Clock, 
   Info, 
-  BriefcaseBusiness
+  BriefcaseBusiness,
+  MonitorCloud,
+  ScreenShare,
+  Smartphone
 } from 'lucide-react';
 import ProductCardGrid from './ProductCardGrid';
 
 export default function TurnkeySection() {
   const features = [
-    { icon: <Building className="w-6 h-6 text-gray-600" />, title: 'End-to-End Management' },
-    { icon: <PenTool className="w-6 h-6 text-gray-600" />, title: 'Custom Design' },
+    { icon: <Smartphone className="w-6 h-6 text-gray-600" />, title: 'End-to-End Managment Tracking Via App' },
+    { icon: <MonitorCloud className="w-6 h-6 text-gray-600" />, title: 'Digital Mentorship of Your Project' },
     { icon: <Hammer className="w-6 h-6 text-gray-600" />, title: 'Expert Construction' },
     { icon: <ShieldCheck className="w-6 h-6 text-gray-600" />, title: 'Quality Assurance' },
     { icon: <Clock className="w-6 h-6 text-gray-600" />, title: 'On-Time Delivery' },
-    { icon: <BriefcaseBusiness className="w-6 h-6 text-gray-600" />, title: 'Professional Team' },
+    { icon: <BriefcaseBusiness className="w-6 h-6 text-gray-600" />, title: 'Cost Management' },
   ];
 
   return (
@@ -41,7 +44,7 @@ export default function TurnkeySection() {
         ))}
       </div>
 
-     <ProductCardGrid />
+     {/* <ProductCardGrid /> */}
     </section>
   );
 }

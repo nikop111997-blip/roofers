@@ -19,8 +19,7 @@ export default function Home() {
    <HeroSection />
    <AboutSection />
    <TurnkeyServices />
-   <TurnkeySection/>
-   <IndustriesSection />
+   <TurnkeySection />
    <WhyChooseUs/>
   <Section1/>
   <TurnkeyProcessSection />

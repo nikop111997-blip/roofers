@@ -38,7 +38,7 @@ export default function Section1() {
         <div className="max-w-3xl mt-12">
           {/* Main Headline */}
           <h1 className="text-2xl md:text-5xl font-bold leading-tight mb-8 drop-shadow-md">
-            End-to-End<br />Turnkey Solutions.
+            End-to-End<br />Construction Solutions.
           </h1>
 
           {/* Stats Divider Row */}
@@ -46,7 +46,7 @@ export default function Section1() {
             <div className="max-w-[200px]">
               <h3 className="text-xl sm:text-3xl font-bold mb-2">250+</h3>
               <p className="text-sm text-gray-200 leading-relaxed font-light">
-                successful turnkey projects delivered globally across industrial sectors.
+                successful construction projects delivered globally across industrial sectors.
               </p>
             </div>
             <div className="max-w-[200px]">
@@ -63,12 +63,12 @@ export default function Section1() {
 
       {/* BOTTOM-RIGHT FLOATING ACTION BUTTON */}
       {/* Uses rounded-tl-[1.5rem] for the reverse cut-out look */}
-      <div className="absolute bottom-0 right-0 bg-white text-gray-900 px-6 py-4 rounded-tl-[1.5rem] z-20 flex items-center gap-3 cursor-pointer hover:bg-gray-100 transition-colors shadow-[0_-10px_30px_rgba(0,0,0,0.1)]">
+      <a href='#form' className="absolute bottom-0 right-0 bg-white text-gray-900 px-6 py-4 rounded-tl-[1.5rem] z-20 flex items-center gap-3 cursor-pointer hover:bg-gray-100 transition-colors shadow-[0_-10px_30px_rgba(0,0,0,0.1)]">
         <span className="text-sm font-bold">Contact Us</span>
         <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
         </svg>
-      </div>
+      </a>
       
     </section>
     </div>

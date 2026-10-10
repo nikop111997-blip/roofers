@@ -4,9 +4,10 @@ import { useState, useId, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 const navLinks = [
-  { name: "About Us", href: "#" },
+  { name: "About Us", href: "/about" },
   {
     name: "Projects",
     href: "#",
@@ -18,7 +19,6 @@ const navLinks = [
   },
   { name: "Portfolio", href: "#" },
   { name: "Partners", href: "#" },
-  { name: "Questions", href: "#" },
 ];
 
 function GlassFilter({ id }) {
@@ -147,14 +147,7 @@ if (
         {/* Left Section: Logo */}
         <div className="flex items-center space-x-6">
           <Link href="/" className="flex items-center space-x-3 transition-colors duration-300">
-            <span className={`text-3xl font-bold tracking-wider drop-shadow-sm transition-colors duration-300 ${isScrolled ? 'text-black' : 'text-white'}`}>
-              RT
-            </span>
-            <div className={`w-[1px] h-8 transition-colors duration-300 ${isScrolled ? 'bg-black/20' : 'bg-white/40'}`} />
-            <div className={`flex flex-col leading-tight text-sm font-semibold transition-colors duration-300 ${isScrolled ? 'text-gray-800' : 'text-white/80'}`}>
-              <span>Roofers</span>
-              <span>Infratech</span>
-            </div>
+            <Image src={`${isScrolled? '/dark.png':'/log1.png'}`} height={40} width={160} alt="logo" />
           </Link>
         </div>
 
@@ -313,7 +306,7 @@ if (
           </div>
 
           {/* CTA Button */}
-          <button className="hidden sm:block relative px-6 py-2.5 rounded-full text-[#123018] font-medium overflow-hidden transition-transform duration-300 hover:scale-[1.03] active:scale-[0.98]">
+          <a href="#form" className="hidden sm:block relative px-6 py-2.5 rounded-full text-[#123018] font-medium overflow-hidden transition-transform duration-300 hover:scale-[1.03] active:scale-[0.98]">
             <span
               className="absolute inset-0 rounded-full"
               style={{
@@ -329,7 +322,7 @@ if (
               }}
             />
             <span className="relative">Request Terms</span>
-          </button>
+          </a>
         </div>
 
         {/* Mobile Hamburger Button */}

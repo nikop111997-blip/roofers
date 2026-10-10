@@ -31,7 +31,7 @@ export default function HeroContactSection() {
         </div>
 
         {/* Right Side: Floating Form Card (Using your original form fields) */}
-        <div className="relative z-10 w-full max-w-[520px] bg-white rounded-3xl p-8 shadow-2xl shrink-0 mt-4 lg:mt-0">
+        <div id='form' className="relative z-10 w-full max-w-[520px] bg-white rounded-3xl p-8 shadow-2xl shrink-0 mt-4 lg:mt-0">
           <h3 className="text-2xl font-bold mb-2 text-[#1a1a1a]">Get in Touch</h3>
           <p className="text-gray-500 text-sm mb-8">
             Define your project goals and identify areas where we can add value.
