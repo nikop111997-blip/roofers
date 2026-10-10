@@ -73,7 +73,7 @@ export default function WhyChooseUs() {
   };
 
   return (
-    <section className="w-full py-20 px-8 md:px-12 lg:px-12 font-sans text-gray-900">
+    <section className="w-full py-20 px-8 md:px-12 lg:px-12 font-sans text-gray-900 dark:bg-white">
       <div className="">
         
         {/* Header Section */}

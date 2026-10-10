@@ -15,7 +15,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-   <div className="px-0 py-0 sm:px-4 sm:py-4">
+   <div className="px-0 py-0 sm:px-4 sm:py-4 dark:bg-white">
    <HeroSection />
    <AboutSection />
    <TurnkeyServices />

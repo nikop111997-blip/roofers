@@ -25,7 +25,7 @@ export default function TurnkeySection() {
   ];
 
   return (
-    <section className=" px-4 py-4 sm:px-6 lg:px-8 font-sans">
+    <section className=" px-4 py-4 sm:px-6 lg:px-8 font-sans dark:bg-white">
       
       {/* Top Features Row */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-20">

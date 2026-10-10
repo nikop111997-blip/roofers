@@ -164,7 +164,7 @@ const [form, setForm] = useState({
           value={form.name}
           onChange={handleChange}
           placeholder="Full name"
-          className="w-full bg-transparent border-b border-gray-300 py-3 outline-none focus:border-[#1a1a1a]"
+          className="w-full bg-transparent border-b border-gray-300 dark:text-gray-800 dark:placeholder:text-gray-700 py-3 outline-none focus:border-[#1a1a1a]"
         />
         {errors.name && (
           <p className="text-red-500 text-sm mt-1">{errors.name}</p>
@@ -178,7 +178,7 @@ const [form, setForm] = useState({
           value={form.email}
           onChange={handleChange}
           placeholder="Email"
-          className="w-full bg-transparent border-b border-gray-300 py-3 outline-none focus:border-[#1a1a1a]"
+          className="w-full bg-transparent border-b border-gray-300 dark:text-gray-800 dark:placeholder:text-gray-700 py-3 outline-none focus:border-[#1a1a1a]"
         />
         {errors.email && (
           <p className="text-red-500 text-sm mt-1">{errors.email}</p>
@@ -192,7 +192,7 @@ const [form, setForm] = useState({
     onChange={handleChange}
     placeholder="Mobile Number"
     maxLength={10}
-    className="w-full bg-transparent border-b border-gray-300 py-3 outline-none focus:border-[#1a1a1a]"
+    className="w-full bg-transparent dark:placeholder:text-gray-700 dark:text-gray-800 border-b border-gray-300 py-3 outline-none focus:border-[#1a1a1a]"
   />
   {errors.mobile && (
     <p className="text-red-500 text-sm mt-1">
@@ -206,7 +206,7 @@ const [form, setForm] = useState({
           value={form.subject}
           onChange={handleChange}
           placeholder="Subject"
-          className="w-full bg-transparent border-b border-gray-300 py-3 outline-none focus:border-[#1a1a1a]"
+          className="w-full bg-transparent border-b border-gray-300 dark:text-gray-800 dark:placeholder:text-gray-700 py-3 outline-none focus:border-[#1a1a1a]"
         />
         {errors.subject && (
           <p className="text-red-500 text-sm mt-1">{errors.subject}</p>
@@ -220,7 +220,7 @@ const [form, setForm] = useState({
           value={form.message}
           onChange={handleChange}
           placeholder="Message"
-          className="w-full bg-transparent border-b border-gray-300 py-3 resize-none outline-none focus:border-[#1a1a1a]"
+          className="w-full bg-transparent border-b border-gray-300 dark:text-gray-800 dark:placeholder:text-gray-700 py-3 resize-none outline-none focus:border-[#1a1a1a]"
         />
         {errors.message && (
           <p className="text-red-500 text-sm mt-1">{errors.message}</p>

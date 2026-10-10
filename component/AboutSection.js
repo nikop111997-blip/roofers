@@ -22,7 +22,7 @@ export default function AboutSection() {
   return (
     <section
       ref={containerRef}
-      className="w-full  py-20 px-6 md:px-12 flex justify-center"
+      className="w-full dark:bg-white  py-20 px-6 md:px-12 flex justify-center"
     >
       <div className=" grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-4 items-start">
         
